@@ -14,6 +14,8 @@
 ### Music Discovery
 [![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/music-discovery.html)
 
+---
+
 ## 📌 Overview  
 
 **Music Explorer** is a **dynamic web application** that allows users to **search for songs, albums, and artists**, listen to **30-second previews**, and explore **detailed music information** using **free open-data APIs** similar to Apple Music's system.  
