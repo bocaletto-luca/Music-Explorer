@@ -11,8 +11,6 @@
 
 ### Music Explorer
 [![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/music-explorer.html)
-### Music Discovery
-[![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/music-discovery.html)
 
 ---
 
