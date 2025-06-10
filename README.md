@@ -9,6 +9,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![API](https://img.shields.io/badge/API-Apple%20Music%20like-9cf?style=flat-square&logo=music)
 
+[![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/)
+
 ## 📌 Overview  
 
 **Music Explorer** is a **dynamic web application** that allows users to **search for songs, albums, and artists**, listen to **30-second previews**, and explore **detailed music information** using **free open-data APIs** similar to Apple Music's system.  
