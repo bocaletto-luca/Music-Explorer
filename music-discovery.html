@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- EN: Ensure proper scaling on mobile devices // IT: Assicura una corretta visualizzazione su dispositivi mobili -->
+  <!-- EN: Ensure proper scaling on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Music Discovery App</title>
   
-  <!-- EN: Include Bootstrap CSS for responsive design // IT: Includi Bootstrap CSS per un design responsive -->
+  <!-- EN: Include Bootstrap CSS for responsive design -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   
   <style>
-    /* EN: Basic styling for body and container // IT: Stili di base per il body e il container */
+    /* Basic styling for the body and container */
     body {
       background-color: #f8f9fa;
       padding-top: 40px;
-      padding-bottom: 80px; /* Reserve space for fixed footer / Riserva spazio per il footer fisso */
+      padding-bottom: 80px; /* Reserve space for fixed footer */
     }
     .container {
       max-width: 1200px;
@@ -23,7 +23,7 @@
       text-align: center;
       margin-bottom: 30px;
     }
-    /* EN: Styling for the music cards grid // IT: Stile per la griglia delle card musicali */
+    /* Styling for the music cards grid */
     #musicContainer {
       margin-top: 20px;
     }
@@ -36,12 +36,12 @@
       width: 100%;
       height: 200px;
     }
-    /* EN: Refresh button styling // IT: Stile per il pulsante Refresh */
+    /* Styling for the Refresh button */
     #refreshBtn {
       margin: 20px auto;
       display: block;
     }
-    /* EN: Fixed footer styling // IT: Stile per il footer fisso */
+    /* Fixed footer styling */
     footer {
       position: fixed;
       bottom: 0;
@@ -57,73 +57,65 @@
 </head>
 <body>
   <div class="container">
-    <!-- EN: App Title // IT: Titolo dell'app -->
+    <!-- App Title -->
     <h1>Music Discovery App</h1>
     
-    <!-- EN: Refresh button to load new music data // IT: Pulsante Refresh per caricare nuovi dati musicali -->
+    <!-- Refresh button to load new music data -->
     <div class="text-center">
       <button id="refreshBtn" class="btn btn-primary">
         Refresh Music / Aggiorna Musica
       </button>
     </div>
     
-    <!-- EN: Container where music cards will be dynamically inserted // IT: Contenitore dove verranno inserite dinamicamente le card musicali -->
+    <!-- Container for dynamic music cards -->
     <div id="musicContainer" class="row"></div>
   </div>
   
-  <!-- EN: Fixed Footer // IT: Footer fisso -->
+  <!-- Fixed Footer -->
   <footer>
     Music Discovery App - Bocaletto Luca
   </footer>
   
-  <!-- EN: Include Bootstrap Bundle JS (includes Popper) // IT: Includi Bootstrap Bundle JS (include Popper) -->
+  <!-- Include Bootstrap Bundle JS (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
     /***********************************************************************************************
-     * EN: Music Discovery App
-     * IT: Music Discovery App
+     * Music Discovery App
      * --------------------------------------------------------------------------------------------
-     * EN: This app randomly discovers music tracks using Deezer's search API.
-     *     A random letter (a – z) is used as the query parameter so that a different set of tracks 
-     *     is returned on every refresh. Each track is displayed in a Bootstrap card with the album cover,
-     *     the track title, artist name, and an inline audio player for a 30‑second preview.
-     *
-     * IT: Questa app permette di scoprire tracce musicali casuali utilizzando l'API di ricerca di Deezer.
-     *     Viene usata una lettera casuale (da a a z) come parametro di ricerca per ottenere un set di tracce
-     *     diverso ad ogni aggiornamento. Ogni traccia viene visualizzata in una card Bootstrap con la copertina,
-     *     il titolo, il nome dell'artista e un player audio inline per ascoltare un'anteprima di 30 secondi.
+     * This app randomly discovers music tracks using Deezer's search API.
+     * A random letter (a–z) is used as the query so that a different set of tracks is returned on every refresh.
+     * Each track is displayed in a Bootstrap card showing the album cover, track title, artist name, 
+     * and an inline audio preview (30 seconds).
      ***********************************************************************************************/
     
-    // EN: Use AllOrigins proxy to avoid CORS issues // IT: Uso del proxy AllOrigins per evitare problemi di CORS
-    const proxyUrl = "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=";
+    // Use ThingProxy as the CORS proxy
+    const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
     
-    // EN: Function to generate a random letter (a-z) // IT: Funzione per generare una lettera casuale (da a a z)
+    // Function to generate a random letter (a-z)
     function getRandomLetter() {
       return String.fromCharCode(97 + Math.floor(Math.random() * 26));
     }
     
-    // EN: Select DOM elements // IT: Seleziona gli elementi DOM
+    // Select DOM elements
     const musicContainer = document.getElementById("musicContainer");
     const refreshBtn = document.getElementById("refreshBtn");
     
     /**
-     * EN: Fetch music data from Deezer's search API using a random letter.
-     *     A timestamp is appended to avoid possible caching.
-     * IT: Scarica i dati musicali dall'API di Deezer utilizzando una lettera casuale.
-     *     Viene aggiunto un timestamp per evitare il caching.
+     * Fetch music data from Deezer's search API using a random letter.
+     * A timestamp is appended to help avoid caching.
      */
     async function fetchMusicData() {
       const randomLetter = getRandomLetter();
+      // Build the API URL with a limit of 12 results
       const apiEndpoint = `https://api.deezer.com/search?q=${randomLetter}&limit=12&_=${Date.now()}`;
       try {
-        const response = await fetch(proxyUrl + encodeURIComponent(apiEndpoint));
+        // Use proxyUrl + apiEndpoint (no need to encode here)
+        const response = await fetch(proxyUrl + apiEndpoint);
         if (!response.ok) {
           throw new Error("Network response not OK: " + response.status);
         }
-        const dataObj = await response.json();
-        // AllOrigins wraps the response inside 'contents'
-        const data = JSON.parse(dataObj.contents);
+        const data = await response.json();
         return data;
       } catch (error) {
         console.error("Error fetching music data:", error);
@@ -132,8 +124,7 @@
     }
     
     /**
-     * EN: Display fetched music tracks as responsive Bootstrap cards.
-     * IT: Visualizza le tracce musicali scaricate come card Bootstrap responsive.
+     * Display fetched music tracks as responsive Bootstrap cards.
      * @param {Object} musicData - The music data returned from the API.
      */
     function displayMusic(musicData) {
@@ -210,8 +201,7 @@
     }
     
     /**
-     * EN: Load music data and display it.
-     * IT: Carica i dati musicali e visualizzali.
+     * Load music data and display it.
      */
     async function loadMusic() {
       musicContainer.innerHTML = "<p class='text-center'>Loading music data...</p>";
@@ -225,6 +215,7 @@
     
     refreshBtn.addEventListener("click", loadMusic);
     
+    // Load music data on initial page load
     loadMusic();
   </script>
 </body>
