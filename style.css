@@ -1,0 +1,163 @@
+  /* Layout di base */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    /* Temi: Day / Night */
+    body.day {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    body.night {
+      background-color: #212529;
+      color: #f8f9fa;
+    }
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .container-main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    /* Sezione di Ricerca e Filtri */
+    .search-controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-controls input[type="text"],
+    .search-controls input[type="number"] {
+      width: 60%;
+      max-width: 300px;
+      padding: 8px;
+      margin: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .search-controls select {
+      padding: 8px;
+      margin: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .search-controls label {
+      font-weight: bold;
+      margin: 0 10px;
+    }
+    .search-controls button {
+      margin: 5px;
+    }
+    /* Checkbox per Tipologia */
+    .type-filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .type-filters label {
+      margin: 0 10px;
+      font-weight: normal;
+    }
+    /* Menu Generi e Lettere (sempre visibili) */
+    #genreMenu, #letterMenu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    #genreMenu button {
+      padding: 6px 10px;
+      border: none;
+      background-color: #17a2b8;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    #genreMenu button.active {
+      background-color: #117a8b;
+    }
+    #letterMenu button {
+      padding: 6px 10px;
+      border: none;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    #letterMenu button.active {
+      background-color: #1e7e34;
+    }
+    /* Controlli di Ordinamento */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .controls button {
+      margin: 5px;
+    }
+    /* Card dei Risultati */
+    .music-card {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .music-card img {
+      max-width: 120px;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+    .music-card .card-body {
+      flex: 1;
+    }
+    .music-card h4 {
+      margin-bottom: 10px;
+    }
+    .music-card p {
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+    body.night .music-card {
+      background-color: #343a40;
+      border-color: #495057;
+      color: #f8f9fa;
+    }
+    body.night .modal-content {
+      background-color: #343a40;
+      color: #f8f9fa;
+    }
+    /* Grafico */
+    #chartContainer {
+      margin-bottom: 20px;
+      position: relative;
+      height: 300px;
+    }
+    /* Paginazione */
+    #paginationContainer {
+      margin-top: 20px;
+      text-align: center;
+    }
+    footer {
+      font-size: 0.9rem;
+    }
