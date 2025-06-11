@@ -10,7 +10,7 @@
 ![API](https://img.shields.io/badge/API-Apple%20Music%20like-9cf?style=flat-square&logo=music)
 
 ### Music Explorer
-[![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/music-explorer.html)
+[![Online Demo](https://img.shields.io/badge/Online-Demo-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://bocaletto-luca.github.io/Music-Explorer/)
 
 ---
 
